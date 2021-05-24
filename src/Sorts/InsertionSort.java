@@ -1,3 +1,5 @@
+package Sorts;
+
 public class InsertionSort {
 
     public static void rec_insertion_sort(int[] arr, int n)
