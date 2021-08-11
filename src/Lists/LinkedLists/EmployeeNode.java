@@ -6,6 +6,8 @@ public class EmployeeNode {
 
     private Employee employee;
     private EmployeeNode next;
+    /* needed for doubly linked list */
+    private EmployeeNode previous;
 
     public EmployeeNode(Employee employee) {
         this.employee = employee;
@@ -30,5 +32,13 @@ public class EmployeeNode {
     public String toString()
     {
         return employee.toString();
+    }
+
+    public EmployeeNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(EmployeeNode previous) {
+        this.previous = previous;
     }
 }
