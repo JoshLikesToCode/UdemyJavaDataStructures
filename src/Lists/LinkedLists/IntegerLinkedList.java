@@ -21,6 +21,7 @@ public class IntegerLinkedList {
             {
                 IntNode node = new IntNode(val);
                 head.setNext(node);
+                size++;
                 return;
             }
             IntNode curr = head.getNext();
@@ -38,6 +39,30 @@ public class IntegerLinkedList {
 
     public boolean isEmpty() {
         return (head == null);
+    }
+
+    public IntNode getHead() {
+        return head;
+    }
+
+    public void setHead(IntNode head) {
+        this.head = head;
+    }
+
+    public IntNode getPrev() {
+        return prev;
+    }
+
+    public void setPrev(IntNode prev) {
+        this.prev = prev;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void printList()

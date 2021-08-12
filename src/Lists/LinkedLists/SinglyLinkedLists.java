@@ -30,6 +30,7 @@ public class SinglyLinkedLists {
         list.addSorted(2);
         list.addSorted(10);
         list.addSorted(9000);
+        System.out.println(list.getSize());
         list.printList();
     }
 }
