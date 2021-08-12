@@ -25,6 +25,46 @@ public class EmployeeDoublyLinkedList {
         size++;
     }
 
+    public boolean addBefore(Employee employeeToAdd, Employee existingEmployee)
+    {
+        if(head == null)
+            return false;
+
+        /* find existing employee */
+        EmployeeNode curr = head;
+        while(curr != null && !curr.getEmployee().equals(existingEmployee))
+        {
+            curr = curr.getNext();
+        }
+        /* if current equals null, we can't find the employee to insert infront of */
+        if(curr == null)
+            return false;
+
+        /*  we found the employee, now we want to insert infront of it. */
+        // - We're gonna have to obviously set the previous and next. fields of the new employee.
+        // - We're gonna have to change the previous field of the current node,
+        //   because we're inserting the new employee in front of the current node,
+        //   so we're gonna want the current node's previous field to point to the new employee,
+        //   and then the employee that's currently in front of current is now going to be in front of the new employee,
+        //   so its next field needs to be changed.
+        EmployeeNode newNode = new EmployeeNode(employeeToAdd);
+        newNode.setPrevious(curr.getPrevious());
+        newNode.setNext(curr);
+        curr.setPrevious(newNode);
+        /* check to see if inserting to head of list, then we need to change the head
+           field for the list to be the new node
+         */
+        if(head == curr)
+            head = newNode;
+        else
+        {
+            newNode.getPrevious().setNext(newNode);
+        }
+        size++;
+        /* if we make it down here, then we have a success */
+        return true;
+    }
+
     public void addToEnd(Employee employee) {
         EmployeeNode node = new EmployeeNode(employee);
         if(tail == null) {

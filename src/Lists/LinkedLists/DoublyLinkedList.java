@@ -22,5 +22,8 @@ public class DoublyLinkedList {
         list.addToEnd(joshStone);
         list.printList();
         System.out.println(list.getSize());
+        Employee marcinEnd = new Employee("Marshawn", "Mazerski", 10331);
+        list.addBefore(marcinEnd, steveHorner);
+        list.printList();
     }
 }
