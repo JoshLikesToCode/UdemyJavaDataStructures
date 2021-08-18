@@ -9,12 +9,13 @@ public class QueueApp {
         Employee steveHorner = new Employee("Steve", "Horner", 789);
         Employee jaredAdkins = new Employee("Jared", "Adkins", 101112);
 
-        ArrQueue queue = new ArrQueue(10);
+        //ArrQueue queue = new ArrQueue(10);
+        CircularQueue queue = new CircularQueue(10);
         queue.add(joshStone);
         queue.add(mollyStone);
         queue.add(steveHorner);
         queue.add(jaredAdkins);
-        //queue.printQueue();
+        queue.printQueue();
 
         queue.remove();
         queue.remove();
