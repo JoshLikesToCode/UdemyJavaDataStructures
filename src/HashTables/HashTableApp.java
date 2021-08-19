@@ -9,14 +9,19 @@ public class HashTableApp {
         Employee steveHorner = new Employee("Steve", "Horner", 789);
         Employee jaredAdkins = new Employee("Jared", "Adkins", 101112);
 
-        SimpleHashTable ht = new SimpleHashTable();
+        //SimpleHashTable ht = new SimpleHashTable();
+        ChainedHashTable ht = new ChainedHashTable();
         ht.put("Stone", joshStone);
         ht.put("Stone", mollyStone);
         ht.put("SHorner", steveHorner);
         ht.put("Adkins", jaredAdkins);
 
         ht.printHashTable();
+        System.out.println();
 
-        System.out.println("Retrieve key Stone: " + ht.get("Stone"));
+        //System.out.println("Retrieve key Stone: " + ht.get("Stone"));
+        ht.remove("Stone");
+        ht.remove("Stone");
+        ht.printHashTable();
     }
 }
