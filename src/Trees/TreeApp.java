@@ -17,17 +17,28 @@ public class TreeApp {
         intTree.insert(27);
         intTree.insert(30);
         intTree.insert(29);
+        intTree.insert(17);
         intTree.insert(26);
         intTree.insert(22);
         intTree.insert(32);
         /* this will traverse the tree in a sorted order */
         intTree.traverseInOrder();
-        /* lets look for nodes now */
         System.out.println();
-        System.out.println(intTree.get(27));
-        System.out.println(intTree.get(15));
-        System.out.println(intTree.get(888));
-        System.out.println("Max Tree Value: " + intTree.max());
-        System.out.println("Min Tree Value: " + intTree.min());
+        /* lets look for nodes now */
+//        System.out.println();
+//        System.out.println(intTree.get(27));
+//        System.out.println(intTree.get(15));
+//        System.out.println(intTree.get(888));
+//        System.out.println("Max Tree Value: " + intTree.max());
+//        System.out.println("Min Tree Value: " + intTree.min());
+        intTree.delete(15);
+        intTree.traverseInOrder();
+        System.out.println();
+        intTree.delete(27);
+        intTree.traverseInOrder();
+        System.out.println();
+        intTree.delete(25);
+        intTree.traverseInOrder();
+        System.out.println();
     }
 }

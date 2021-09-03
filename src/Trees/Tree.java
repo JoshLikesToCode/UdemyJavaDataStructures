@@ -1,14 +1,13 @@
 package Trees;
 
+/*  if we come to insert a node, if the tree is empty the node becomes the root
+    and we're done. If it isn't empty, then we're going to compare the value to the
+    the root note and we're going to go left if it's less than and right if it's
+    greater than. */
+
 public class Tree {
     /* root node, think the HEAD of the linked list */
     private TreeNode root;
-
-    /*  if we come to insert a node, if the tree is empty the node becomes the root
-        and we're done. If it isn't empty, then we're going to compare the value to the
-        the root note and we're going to go left if it's less than and right if it's
-        greater than. */
-
 
     /* tree class insert, this is what's actually being called by main */
     public void insert(int value)
@@ -26,6 +25,49 @@ public class Tree {
             root.insert(value);
         }
 
+    }
+
+    public void delete(int value)
+    {
+        /* recursive method */
+        root = delete(root, value);
+    }
+
+    /* recursive delete method, private b/c only used within class */
+    private TreeNode delete(TreeNode subtreeRoot, int value) {
+        /* tree is empty */
+        if (subtreeRoot == null)
+            return subtreeRoot; /* returns null */
+        /* we need to find the value we want to delete */
+        if (value < subtreeRoot.getData()) {
+            /* search left subtree */
+            subtreeRoot.setLeftChild(delete(subtreeRoot.getLeftChild(), value));
+        } else if (value > subtreeRoot.getData())
+        {
+            /* same as above but go right */
+            subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), value));
+        }
+        else    /* the node we want to delete IS the subtree root */
+        {
+            // Cases where node to delete has 1 or 2 child(ren)
+            if(subtreeRoot.getLeftChild() == null)
+            {
+                return subtreeRoot.getRightChild();
+            }
+            else if(subtreeRoot.getRightChild() == null)
+            {
+                return subtreeRoot.getRightChild();
+            }
+
+            // Case 3: node to delete has 2 children
+
+            /* Replace the value in the subtreeRoot node with the smallest
+                value from the right subtree */
+            subtreeRoot.setData(subtreeRoot.getRightChild().min());
+            /* Delete the node that has the smallest value in the right subtree */
+            subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), subtreeRoot.getData()));
+        }
+        return subtreeRoot;
     }
 
     public void traverseInOrder()
